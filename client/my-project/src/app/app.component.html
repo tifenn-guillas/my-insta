@@ -1,0 +1,37 @@
+<div class="body">
+  <header>
+    <div class="navbar navbar-fixed">
+      <!-- Logo -->
+      <a routerLink="/" class="navbar-link">
+        <i class="fa fa-camera-retro fa-3x" aria-hidden="true"></i>
+      </a>
+
+      <!-- Right Navigation -->
+      <div class="navbar-righr">
+
+        <!-- Text link -->
+        <a routerLink="/" class="navbar-item navbar-link">
+          <i class="fa fa-picture-o" aria-hidden="true"></i>
+        </a>
+        <a routerLink="/" class="navbar-item navbar-link">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+        <a routerLink="/" class="navbar-item navbar-link">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+        </a>
+
+        <!-- Text link -->
+        <!--<a routerLink="/change-password" *ngIf="isLoggedIn && role != 'consult'" class="navbar-item navbar-link">User settings</a>-->
+
+        <!-- Button (call-to-action) -->
+        <!--<a *ngIf="!isLoggedIn" routerLink="/login" class="navbar-item navbar-button btn btn-success">Sign in</a>-->
+        <!--<a *ngIf="isLoggedIn" routerLink="/login" class="navbar-item navbar-button btn btn-danger">Sign out</a>-->
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+</div>

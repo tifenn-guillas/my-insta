@@ -1,0 +1,26 @@
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+users:
+    type:     rest
+    resource: AppBundle\Controller\UserController
+
+images:
+    type:     rest
+    resource: AppBundle\Controller\ImageController
+
+comment:
+    type:     rest
+    resource: AppBundle\Controller\CommentController
+
+tag:
+    type:     rest
+    resource: AppBundle\Controller\TagController
+
+like:
+    type:     rest
+    resource: AppBundle\Controller\LikeController
