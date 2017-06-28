@@ -5,22 +5,24 @@ import { HttpModule } from '@angular/http';
 
 import { AppRoutingModule } from './app.routing.module';
 
+import { ConfigService } from './core/config.service';
 import { AppComponent } from './app.component';
-// import { TestComponent } from './test/test.component';
 import { HomeComponent } from './home/home.component';
+import { AddImageComponent } from './add-image/add-image.component';
+import { AddImageService } from './add-image/add-image.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // TestComponent,
-    HomeComponent],
+    HomeComponent,
+    AddImageComponent],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ConfigService, AddImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

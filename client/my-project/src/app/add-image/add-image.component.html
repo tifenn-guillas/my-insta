@@ -1,0 +1,31 @@
+<form (ngSubmit)="submit()" #form="ngForm">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <div class="row form-group">
+          <label for="file" class="col-sm-2 control-label">Image</label>
+          <div class="col-sm-10">
+            <input type="file" class="form-control" id="file" name="file" (change)="fileChangeEvent($event)">
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <label for="description" class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="description" name="description" [(ngModel)]="image.description" required>
+          </div>
+        </div>
+
+        <div class="row form-group">
+          <label for="tags" class="col-sm-2 control-label">Tags</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="tags" name="tags" [(ngModel)]="image.tags">
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="text-center">
+    <a routerLink="/home" class="btn btn-danger">Cancel</a>
+    <button [disabled]="!form.valid || !image.file" type="submit" class="btn btn-success">Save</button>
+  </div>
+</form>
