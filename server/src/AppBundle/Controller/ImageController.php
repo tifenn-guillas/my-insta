@@ -7,6 +7,7 @@ use AppBundle\Entity\Tag;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\View\View;
@@ -33,7 +34,7 @@ class ImageController extends FOSRestController
     {
         $user = $this->em->getRepository('AppBundle:User')->find($request->request->get('user'));
         $description = $request->request->get('description');
-        $tags = $request->request->get('tags');
+        $tags = $this->tagsToArray($request->request->get('tags'));
 
         if (!$user or $user->getDeletedAt()) {
             return $this->notFound('User');
@@ -43,7 +44,7 @@ class ImageController extends FOSRestController
         $image->setUploadedBy($user);
         $image->setDescription($description);
         foreach ($tags as $t) {
-            $tag = $this->em->getRepository('AppBundle:Tag')->find($t);
+            $tag = $this->em->getRepository('AppBundle:Tag')->findOneBy(array('tag' => $t));
             if (!$tag) {
                 $tag = new Tag();
                 $tag->setTag($t);
@@ -123,5 +124,12 @@ class ImageController extends FOSRestController
     public function setContainer(ContainerInterface $container = null) {
         parent::setContainer($container);
         $this->em = $this->getDoctrine()->getManager();
+    }
+
+    public function tagsToArray($string) {
+        $tags = preg_replace('/\s+/', '', $string);
+        $tags = explode('#', $tags);
+        $tags = array_filter($tags);
+        return $tags;
     }
 }

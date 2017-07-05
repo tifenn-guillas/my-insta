@@ -86,3 +86,10 @@ fos_rest:
             - { path: '^/', priorities: ['json'], fallback_format: 'json' }
     body_listener:
         enabled: true
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        product_image:
+            uri_prefix:         images/products
+            upload_destination: '%kernel.root_dir%/../web/images/products'
