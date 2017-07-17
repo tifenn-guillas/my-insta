@@ -1,4 +1,4 @@
-FROM anthonykgross/docker-base:latest
+FROM debian:jessie
 
 MAINTAINER Tifenn Guillas
 

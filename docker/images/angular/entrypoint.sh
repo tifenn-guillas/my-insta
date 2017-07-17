@@ -4,11 +4,11 @@ set -e
 install() {
     cd my-project
     rm node_modules/ -Rf
-    gosu docker yarn
+    yarn
 }
 
 init() {
-    gosu docker ng new my-project
+    ng new my-project
 }
 
 run() {

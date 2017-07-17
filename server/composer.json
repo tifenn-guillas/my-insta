@@ -24,7 +24,8 @@
         "twig/twig": "2.3.2",
         "friendsofsymfony/user-bundle": "~2.0",
         "friendsofsymfony/rest-bundle": "^2.2",
-        "vich/uploader-bundle": "^1.6"
+        "vich/uploader-bundle": "^1.6",
+        "nelmio/cors-bundle": "^1.5"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
