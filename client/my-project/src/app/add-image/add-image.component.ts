@@ -18,11 +18,11 @@ export class AddImageComponent {
   }
 
   submit() {
-    this.addImageService.getImages().subscribe(
-        response => console.log('ok'),
-        error => console.error(error)
-    );
-      console.log(this.image);
+    this.addImageService.getImages();
+    //     .subscribe(
+    //     response => console.log('ok'),
+    //     error => console.error(error)
+    // );
   }
 
 }

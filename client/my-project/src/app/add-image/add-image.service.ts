@@ -25,11 +25,10 @@ export class AddImageService {
     }
 
     getImages() {
-        console.log(this.testUrl);
         const headers = new Headers({ 'Content-Type': 'application/json' });
         const options = new RequestOptions({ headers: headers });
         return this.http.get(this.testUrl, options)
-            .map((res: Response) => res.json());
+            .map((res: Response) => console.log(res));
 
     }
 }

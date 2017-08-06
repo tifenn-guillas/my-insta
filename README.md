@@ -6,7 +6,7 @@ An Instagram-like, just for fun!
 - Docker 1.9
 - Docker Compose 1.4
 
-## How to install 
+## Installation 
 
 Create images for Docker
 ```console
@@ -20,23 +20,42 @@ chmod +x install.sh
 ./install.sh
 ```
 
-Install vendor
+Install application
 ```console
-docker-compose run php7 install
+docker-compose run app install
+```
+## Launch the application
+
+**Development**
+
+By default, the application is launch in development environment.
+
+**Production**
+
+To launch the application in production environment, modify the variable APP_ENV in 'docker-compose.yml':
+```console
+services:
+  app:
+    environment:
+      APP_ENV: prod
 ```
 
-Install node_modules
-```console
-docker-compose run angular install
-```
+**Launching**
 
 Run the cluster
 ```console
 docker-compose up
 ```
 
-It's done! You can access to the application through this url: http://localhost:4200/
+In another terminal
+```console
+docker exec -ti app bash
+```
 
+## Development 
+
+- Don't miss to add 127.0.0.1 dopsyng.local in /etc/hosts (Unix)
+- Don't miss to add <VM ip> dopsyng.local in /etc/hosts (OSX) or in Windows/System32/drivers/etc/hosts (Win)
 ## Author:
 
 **Tifenn Guillas**

@@ -17,7 +17,7 @@ class DefaultController extends Controller
      * @Route("/", name="homepage")
      */
     public function indexAction(Request $request)
-    {
+    {cfedwsfced
         $jsonContent = json_encode(['my-insta' => 'Hello world!']);
 
         return new Response($jsonContent);
